@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import fr.esgi.trainstation.databinding.ActivityMainBinding
-import fr.esgi.trainstation.rptTestActivity.ActivityRptTest
+import fr.esgi.trainstation.rptTestActivity.ActivityListeGare
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
 
         binding.btnLottie.setOnClickListener{
-            val intent = Intent(this, ActivityRptTest::class.java)
+            val intent = Intent(this, ActivityListeGare::class.java)
             print(intent.action);
             intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
             startActivity(intent)
