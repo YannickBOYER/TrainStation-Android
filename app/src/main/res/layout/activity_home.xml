@@ -38,5 +38,21 @@
         app:layout_constraintVertical_bias="0.5"
         tools:ignore="UnknownId" />
 
+    <Button
+        android:id="@+id/listeApi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="40dp"
+        android:text="Liste gare API"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5"
+        tools:ignore="UnknownId" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
