@@ -17,7 +17,7 @@ class ActivityListeGare : AppCompatActivity() {
         binding = ActivityListeGaresBinding.inflate(layoutInflater)
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         binding.recyclerView.adapter = adapter
-        setContentView(binding.root)
+        setContentView(binding.root) 
     }
 
     override fun onResume() {
