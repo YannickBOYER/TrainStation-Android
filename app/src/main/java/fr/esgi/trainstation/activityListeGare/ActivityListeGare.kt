@@ -2,21 +2,34 @@ package fr.esgi.trainstation.activityListeGare
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import fr.esgi.trainstation.R
-import kotlinx.coroutines.GlobalScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import fr.esgi.trainstation.databinding.ActivityListeGaresBinding
+import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 
 class ActivityListeGare : AppCompatActivity() {
+
+    private lateinit var binding: ActivityListeGaresBinding
+    var records:List<Record> = mutableListOf()
+    var adapter = RecordAdapter()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        GlobalScope.launch {
-            getGareFromLocation()
-        }
-        setContentView(R.layout.activity_liste_gare)
+        binding = ActivityListeGaresBinding.inflate(layoutInflater)
+        binding.recyclerView.layoutManager = LinearLayoutManager(this)
+        binding.recyclerView.adapter = adapter
+        setContentView(binding.root)
     }
 
-    private suspend fun getGareFromLocation() {
+    override fun onResume() {
+        super.onResume()
+        MainScope().launch {
+            records = getGareFromLocation()
+            adapter.loadData(records)
+        }
+    }
+
+    private suspend fun getGareFromLocation():List<Record> {
         val gares = ListeGareApi.getGaresFromLocation()
-        print(gares)
+        return gares.records
     }
 }
