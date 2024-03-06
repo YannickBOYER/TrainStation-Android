@@ -1,5 +1,6 @@
 package fr.esgi.trainstation.activityListeGare
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -7,6 +8,7 @@ import fr.esgi.trainstation.databinding.ActivityListeGaresBinding
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import androidx.activity.viewModels
+import fr.esgi.trainstation.activityDetailGare.ActivityDetailGare
 
 class ActivityListeGare : AppCompatActivity(), OnGareClickListener {
 
@@ -15,8 +17,9 @@ class ActivityListeGare : AppCompatActivity(), OnGareClickListener {
     private val adapter = RecordAdapter(this)
 
     override fun onClick(record: Record) {
-        print(record)
-        TODO("Redirection sur le détail")
+        val intentDetailGare = Intent(this, ActivityDetailGare::class.java)
+        intentDetailGare.putExtra("gareLibelle", record.fields.libelle)
+        startActivity(intentDetailGare)
     }
 
     override fun onClickMap(record: Record) {
