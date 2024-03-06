@@ -8,11 +8,16 @@ import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import androidx.activity.viewModels
 
-class ActivityListeGare : AppCompatActivity() {
+class ActivityListeGare : AppCompatActivity(), OnGareClickListener {
 
     private lateinit var binding: ActivityListeGaresBinding
     private val listeGareViewModel: ListeGareViewModel by viewModels()
-    private val adapter = RecordAdapter()
+    private val adapter = RecordAdapter(this)
+
+    override fun onClick(record: Record) {
+        print(record)
+        TODO("Redirection sur le détail")
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
