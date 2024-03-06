@@ -17,7 +17,6 @@ import fr.esgi.trainstation.activityListeGare.ActivityListeGare
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var fusedLocationClient: FusedLocationProviderClient
-    private lateinit var locationButton: Button
     private lateinit var listeGareButton: Button
     private lateinit var locationTextView: TextView
 
@@ -28,22 +27,22 @@ class HomeActivity : AppCompatActivity() {
 
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
-        locationButton = findViewById(R.id.getLocation)
         listeGareButton = findViewById(R.id.listeApi)
         locationTextView = findViewById(R.id.textView)
 
-        locationButton.setOnClickListener {
-            requestLocation()
-        }
-
         listeGareButton.setOnClickListener {
             val intent = Intent(this, ActivityListeGare::class.java)
+
             intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
-            startActivity(intent)
+            requestLocation { latitude, longitude ->
+                intent.putExtra("latitude", latitude.toString())
+                intent.putExtra("longitude", longitude.toString())
+                startActivity(intent)
+            }
         }
     }
 
-    private fun requestLocation() {
+    private fun requestLocation(locationCallback: (latitude: Double, longitude: Double) -> Unit) {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
             != PackageManager.PERMISSION_GRANTED
         ) {
@@ -56,12 +55,13 @@ class HomeActivity : AppCompatActivity() {
             fusedLocationClient.lastLocation
                 .addOnSuccessListener { location ->
                     if (location != null) {
-                        val latitude = location.latitude
-                        val longitude = location.longitude
-                        val message = "Latitude: $latitude, Longitude: $longitude"
-                        locationTextView.text = message
+                        locationCallback(location.latitude, location.longitude)
                     } else {
-                        locationTextView.text = "Impossible de récupérer la localisation actuelle"
+                        Toast.makeText(
+                            this,
+                            "Impossible de récupérer la localisation actuelle",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 }
                 .addOnFailureListener { e ->

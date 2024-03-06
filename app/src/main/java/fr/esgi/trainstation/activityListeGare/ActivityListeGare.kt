@@ -10,6 +10,9 @@ import androidx.activity.viewModels
 
 class ActivityListeGare : AppCompatActivity(), OnGareClickListener {
 
+    private var latitude: String = "0.0"
+    private var longitude: String = "0.0"
+
     private lateinit var binding: ActivityListeGaresBinding
     private val listeGareViewModel: ListeGareViewModel by viewModels()
     private val adapter = RecordAdapter(this)
@@ -31,6 +34,12 @@ class ActivityListeGare : AppCompatActivity(), OnGareClickListener {
         binding.recyclerView.adapter = adapter
         setContentView(binding.root)
 
+        val extras = intent.extras
+        if (extras != null) {
+            latitude = extras.getString("latitude", "45.761264")
+            longitude = extras.getString("longitude", "4.849556")
+        }
+
         listeGareViewModel.records.observe(this) { records ->
             adapter.loadData(records)
         }
@@ -38,6 +47,6 @@ class ActivityListeGare : AppCompatActivity(), OnGareClickListener {
 
     override fun onResume() {
         super.onResume()
-        listeGareViewModel.fetchGaresFromLocation()
+        listeGareViewModel.fetchGaresFromLocation(latitude, longitude)
     }
 }
