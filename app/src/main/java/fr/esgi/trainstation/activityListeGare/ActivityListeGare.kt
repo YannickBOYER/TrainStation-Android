@@ -7,11 +7,17 @@ import fr.esgi.trainstation.databinding.ActivityListeGaresBinding
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 
-class ActivityListeGare : AppCompatActivity() {
+class ActivityListeGare : AppCompatActivity(), OnGareClickListener {
 
     private lateinit var binding: ActivityListeGaresBinding
     var records:List<Record> = mutableListOf()
-    var adapter = RecordAdapter()
+    var adapter = RecordAdapter(this)
+
+    override fun onClick(record: Record) {
+        print(record)
+        TODO("Redirection sur le détail")
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityListeGaresBinding.inflate(layoutInflater)

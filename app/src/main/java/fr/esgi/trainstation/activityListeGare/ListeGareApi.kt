@@ -13,7 +13,7 @@ object ListeGareApi {
         }
     }
 
-    suspend fun getGaresFromLocation(latitude: String = "45.761264", longitude: String = "4.849556", rayon: String = "2000"): ListeGareResponse {
+    suspend fun getGaresFromLocation(latitude: String = "45.761264", longitude: String = "4.849556", rayon: String = "10000"): ListeGareResponse {
         return client.get<ListeGareResponse>("https://data.sncf.com/api/records/1.0/search/") {
             parameter("dataset", "liste-des-gares")
             parameter("rows", 1000)

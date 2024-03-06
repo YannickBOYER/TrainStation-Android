@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import fr.esgi.trainstation.databinding.LayoutGaresBinding
 
-class RecordAdapter: RecyclerView.Adapter<RecordAdapter.GareViewHolder>() {
+class RecordAdapter(var callback: OnGareClickListener): RecyclerView.Adapter<RecordAdapter.GareViewHolder>() {
     var records:MutableList<Record> = mutableListOf()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GareViewHolder {
         val binding = LayoutGaresBinding.inflate(LayoutInflater.from(parent.context),parent,false)
@@ -20,7 +20,9 @@ class RecordAdapter: RecyclerView.Adapter<RecordAdapter.GareViewHolder>() {
     override fun onBindViewHolder(holder: GareViewHolder, position: Int) {
         val gare = records[position]
         holder.binding.layoutGaresLibelle.text = gare.fields.libelle
-
+        holder.binding.itemGare.setOnClickListener{
+            callback.onClick(gare)
+        }
     }
 
     fun loadData(records:List<Record>){
@@ -31,4 +33,8 @@ class RecordAdapter: RecyclerView.Adapter<RecordAdapter.GareViewHolder>() {
 
     class GareViewHolder(val binding: LayoutGaresBinding) : RecyclerView.ViewHolder(binding.root)
 
+}
+
+interface OnGareClickListener{
+    fun onClick(record: Record)
 }
