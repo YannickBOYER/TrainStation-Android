@@ -58,4 +58,6 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.0")
     implementation("com.google.code.gson:gson:2.9.0")
     implementation("com.google.ar:core:1.26.0")
+    implementation("androidx.activity:activity-ktx:1.4.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1")
 }

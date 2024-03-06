@@ -5,7 +5,7 @@ import io.ktor.client.features.json.*
 import io.ktor.client.features.json.serializer.KotlinxSerializer
 import io.ktor.client.request.*
 
-object ListeGareApi {
+class ListeGareRepository {
     private val client = HttpClient {
         install(JsonFeature) {
             val json = kotlinx.serialization.json.Json { ignoreUnknownKeys = true }

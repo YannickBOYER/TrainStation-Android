@@ -24,9 +24,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".rptTestActivity.ActivityListeGare"
-            android:exported="false" />
-        <activity
             android:name=".activityListeGare.ActivityListeGare"
             android:exported="false" />
         <activity
