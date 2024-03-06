@@ -1,9 +1,11 @@
 package fr.esgi.trainstation.activityListeGare
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import fr.esgi.trainstation.databinding.LayoutGaresBinding
+import io.ktor.util.toLowerCasePreservingASCIIRules
 
 class RecordAdapter(var callback: OnGareClickListener): RecyclerView.Adapter<RecordAdapter.GareViewHolder>() {
     var records:MutableList<Record> = mutableListOf()
@@ -19,9 +21,16 @@ class RecordAdapter(var callback: OnGareClickListener): RecyclerView.Adapter<Rec
 
     override fun onBindViewHolder(holder: GareViewHolder, position: Int) {
         val gare = records[position]
-        holder.binding.layoutGaresLibelle.text = gare.fields.libelle
-        holder.binding.itemGare.setOnClickListener{
+        holder.binding.libelle.text = gare.fields.libelle
+        holder.binding.location.text = gare.fields.commune.lowercase().plus(" ").plus(gare.fields.departemen)
+
+        holder.binding.gareContainer.setOnClickListener{
             callback.onClick(gare)
+        }
+
+        // On click sur l'icon map
+        holder.binding.itemGare.setOnClickListener{
+            callback.onClickMap(gare)
         }
     }
 
@@ -32,9 +41,10 @@ class RecordAdapter(var callback: OnGareClickListener): RecyclerView.Adapter<Rec
     }
 
     class GareViewHolder(val binding: LayoutGaresBinding) : RecyclerView.ViewHolder(binding.root)
-
 }
 
 interface OnGareClickListener{
     fun onClick(record: Record)
+
+    fun onClickMap(record: Record)
 }

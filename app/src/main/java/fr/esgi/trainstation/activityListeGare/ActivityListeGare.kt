@@ -19,6 +19,11 @@ class ActivityListeGare : AppCompatActivity(), OnGareClickListener {
         TODO("Redirection sur le détail")
     }
 
+    override fun onClickMap(record: Record) {
+        TODO("Not yet implemented")
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityListeGaresBinding.inflate(layoutInflater)
