@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">StationDeTrain</string>
+    <string name="title_home">Trouve les stations de trains proches</string>
+    <string name="title_main">Bienvenue sur TrainStation</string>
+</resources>

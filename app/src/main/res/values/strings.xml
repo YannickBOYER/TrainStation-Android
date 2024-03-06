@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TrainStation</string>
+    <string name="title_home">Find nearby train stations</string>
+    <string name="title_main">Welcome to TrainStation</string>
 </resources>
