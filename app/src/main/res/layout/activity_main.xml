@@ -22,9 +22,9 @@
         android:id="@+id/textView4"
         android:layout_width="225dp"
         android:layout_height="wrap_content"
-        android:text="Bienvenue sur trainStation Tracker"
+        android:text="@string/title_main"
         android:textAlignment="center"
-        android:textSize="32dp"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="@+id/lottieAnimationView"
         app:layout_constraintStart_toStartOf="@+id/lottieAnimationView"
         tools:layout_editor_absoluteY="35dp" />
