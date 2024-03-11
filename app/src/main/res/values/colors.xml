@@ -10,4 +10,5 @@
     <color name="gray">#888888</color>
     <color name="dark_gray">#4A4A4A</color>
     <color name="red">#FF1100</color>
+    <color name="defaultColorTrainStation">#6750A4</color>
 </resources>

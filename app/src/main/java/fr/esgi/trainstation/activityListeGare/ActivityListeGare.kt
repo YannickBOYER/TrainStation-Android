@@ -21,7 +21,7 @@ class ActivityListeGare : AppCompatActivity(), OnGareClickListener {
 
     override fun onClick(record: Record) {
         val intentDetailGare = Intent(this, ActivityDetailGare::class.java)
-        intentDetailGare.putExtra("gareLibelle", record.fields.libelle)
+        intentDetailGare.putExtra("nomGare", record.fields.nom)
         startActivity(intentDetailGare)
     }
 

@@ -21,8 +21,8 @@ class RecordAdapter(var callback: OnGareClickListener): RecyclerView.Adapter<Rec
 
     override fun onBindViewHolder(holder: GareViewHolder, position: Int) {
         val gare = records[position]
-        holder.binding.libelle.text = gare.fields.libelle
-        holder.binding.location.text = gare.fields.commune.lowercase().plus(" ").plus(gare.fields.departemen)
+        holder.binding.libelle.text = gare.fields.nom
+        holder.binding.location.text = gare.fields.libellecourt.plus(" ").plus(gare.fields.codeinsee)
 
         holder.binding.gareContainer.setOnClickListener{
             callback.onClick(gare)
