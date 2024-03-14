@@ -1,6 +1,7 @@
 package fr.esgi.trainstation.activityDetailGare
 
 import fr.esgi.trainstation.activityDetailGare.ApiResponse.AccompagnementPMRResponse
+import fr.esgi.trainstation.activityDetailGare.ApiResponse.GareDetailResponse
 import fr.esgi.trainstation.activityDetailGare.ApiResponse.GareEquipeeWifiResponse
 import fr.esgi.trainstation.activityDetailGare.ApiResponse.HoraireGareResponse
 import fr.esgi.trainstation.activityDetailGare.ApiResponse.RepartitionHFResponse
@@ -18,6 +19,9 @@ class DetailGareRepository {
             val json = Json { ignoreUnknownKeys = true }
             serializer = KotlinxSerializer(json)
         }
+    }
+    suspend fun getDetailsFromNomGare(nomGare: String): GareDetailResponse {
+        return client.get<GareDetailResponse>("https://ressources.data.sncf.com/api/explore/v2.1/catalog/datasets/gares-de-voyageurs/records?limit=20&refine=nom:$nomGare")
     }
 
     suspend fun getHorairesFromNomGare(nomGare: String): HoraireGareResponse {

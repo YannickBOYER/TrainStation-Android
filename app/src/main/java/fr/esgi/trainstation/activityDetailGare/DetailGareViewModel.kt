@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import fr.esgi.trainstation.activityDetailGare.ApiResponse.AccompagnementPMRResponse
+import fr.esgi.trainstation.activityDetailGare.ApiResponse.GareDetailResponse
 import fr.esgi.trainstation.activityDetailGare.ApiResponse.GareEquipeeWifiResponse
 import fr.esgi.trainstation.activityDetailGare.ApiResponse.HoraireGareResponse
 import fr.esgi.trainstation.activityDetailGare.ApiResponse.RepartitionHFResponse
@@ -17,11 +18,12 @@ class DetailGareViewModel : ViewModel() {
 
     fun getGareDetailsFromNom(nom: String) {
         viewModelScope.launch {
+            val details: GareDetailResponse = listeGareRepository.getDetailsFromNomGare(nom)
             val horaires: HoraireGareResponse = listeGareRepository.getHorairesFromNomGare(nom)
             val accompagnementPMR: AccompagnementPMRResponse = listeGareRepository.getAccompagnmentPMRFromNomGare(nom)
             val repartitionHFResponse: RepartitionHFResponse = listeGareRepository.getRepartitionHFFromNomGare(nom)
             val gareEquipeeWifiResponse: GareEquipeeWifiResponse = listeGareRepository.getGareEquipeeWifiFromNomGare(nom)
-            _gare.value = GareDetailModel(nom, horaires, accompagnementPMR, repartitionHFResponse, gareEquipeeWifiResponse)
+            _gare.value = GareDetailModel(details, horaires, accompagnementPMR, repartitionHFResponse, gareEquipeeWifiResponse)
         }
     }
 }

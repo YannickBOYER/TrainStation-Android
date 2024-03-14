@@ -13,6 +13,7 @@ import kotlinx.coroutines.launch
 class ActivityDetailGare : AppCompatActivity() {
     private lateinit var binding: ActivityDetailGareBinding
     private val detailGareViewModel: DetailGareViewModel by viewModels()
+    private val nonRenseigne = "Non renseigné."
 
     private var nomGare = ""
 
@@ -25,7 +26,23 @@ class ActivityDetailGare : AppCompatActivity() {
         if(gareLibelle != null){
             this.nomGare = gareLibelle
             detailGareViewModel.gare.observe(this){ gare ->
-                binding.libelle.text = gare.nom
+                if(gare.details.total_count > 0){
+                    binding.libelle.text = gare.details.results[0].nom ?: nonRenseigne
+                    binding.libCourt.text = gare.details.results[0].libellecourt ?: nonRenseigne
+                    binding.codeInsee.text = gare.details.results[0].codeinsee ?: nonRenseigne
+
+                    //binding.libelle.text = gare.details.results[0].codeinsee ?: nonRenseigne
+                    // binding.libelle.text = gare.details.results[0].position_geographique ?: nonRenseigne
+                }
+                if(gare.gareEquipeeWifiResponse.total_count > 0){
+                    binding.wifi.text = gare.gareEquipeeWifiResponse.results[0].service_wifi ?: nonRenseigne
+                }
+                /*binding.libelle.text = gare.nom
+                if(gare.gareEquipeeWifiResponse.total_count > 0){
+                    binding.equipeeWifi.text = gare.gareEquipeeWifiResponse.results[0].service_wifi;
+                }else{
+                    binding.equipeeWifi.text = nonRenseigne
+                }*/
             }
         }else{
             binding.libelle.text = gareLibelle
