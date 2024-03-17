@@ -1,11 +1,9 @@
 package fr.esgi.trainstation.activityListeGare
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import fr.esgi.trainstation.databinding.LayoutGaresBinding
-import io.ktor.util.toLowerCasePreservingASCIIRules
 
 class RecordAdapter(var callback: OnGareClickListener): RecyclerView.Adapter<RecordAdapter.GareViewHolder>() {
     var records:MutableList<Record> = mutableListOf()

@@ -6,10 +6,16 @@ import fr.esgi.trainstation.activityDetailGare.ApiResponse.GareEquipeeWifiRespon
 import fr.esgi.trainstation.activityDetailGare.ApiResponse.HoraireGareResponse
 import fr.esgi.trainstation.activityDetailGare.ApiResponse.RepartitionHFResponse
 
-data class GareDetailModel (
+/*data class GareDetailModel (
     val details: GareDetailResponse,
     val horaires: HoraireGareResponse,
     val accompagnementPMRResponse: AccompagnementPMRResponse,
     val repartitionHFResponse: RepartitionHFResponse,
     val gareEquipeeWifiResponse: GareEquipeeWifiResponse
+)*/
+
+data class GareInformationGeneraleModel(
+    val details: GareDetailResponse,
+    val gareEquipeeWifiResponse: GareEquipeeWifiResponse,
+    val repartitionHFResponse: RepartitionHFResponse
 )

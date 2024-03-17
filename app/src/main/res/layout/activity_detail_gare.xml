@@ -16,14 +16,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:padding="8dp">
 
             <!-- Titre de la grande section -->
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#6750A4"
-                android:padding="16dp">
+                android:padding="10dp">
 
                 <!-- Titre de la grande section -->
                 <TextView
@@ -124,45 +125,25 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="8dp">
 
             <!-- Titre de la grande section -->
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#6750A4"
-                android:padding="16dp">
+                android:padding="10dp">
 
                 <!-- Titre de la grande section -->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Informations spécifiques"
+                    android:text="Spécificitées"
                     android:textSize="24sp"
                     android:textColor="#FFFFFF"
                     android:textStyle="bold"/>
             </FrameLayout>
-
-            <!-- Accès PMR -->
-            <LinearLayout
-                android:layout_marginBottom="-8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="16dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Nom de la gare : "
-                    android:textSize="18sp"/>
-
-                <TextView
-                    android:id="@+id/accesPMR"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="18sp"/>
-            </LinearLayout>
 
             <!-- Répartition HF -->
             <LinearLayout
@@ -175,7 +156,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Répartition Homme/Femme : "
+                    android:text="Répartition : "
                     android:textSize="18sp"/>
 
                 <TextView
@@ -184,6 +165,19 @@
                     android:layout_height="wrap_content"
                     android:textSize="18sp"/>
             </LinearLayout>
+
+            <!-- Accès PMR -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/white"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingRight="15dp"
+                android:paddingLeft="15dp"
+                android:id="@+id/recyclerViewAssistancePmr"
+                android:background="@color/red">
+            </androidx.recyclerview.widget.RecyclerView>
 
         </LinearLayout>
     </LinearLayout>
