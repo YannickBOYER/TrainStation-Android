@@ -23,6 +23,7 @@ class ActivityListeGare : AppCompatActivity(), OnGareClickListener {
         val intentDetailGare = Intent(this, ActivityDetailGare::class.java)
         intentDetailGare.putExtra("nomGare", record.fields.nom)
         startActivity(intentDetailGare)
+
     }
 
     override fun onClickMap(record: Record) {

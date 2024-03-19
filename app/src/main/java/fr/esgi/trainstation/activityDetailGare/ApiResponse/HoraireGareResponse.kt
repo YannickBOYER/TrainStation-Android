@@ -3,7 +3,7 @@ package fr.esgi.trainstation.activityDetailGare.ApiResponse
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Result(
+data class Horaire(
     val uic: String,
     val nom_normal: String,
     val jour: String,
@@ -14,5 +14,5 @@ data class Result(
 @Serializable
 data class HoraireGareResponse(
     val total_count: Int,
-    val results: List<Result>
+    val results: List<Horaire>
 )

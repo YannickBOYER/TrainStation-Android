@@ -8,6 +8,7 @@ import fr.esgi.trainstation.activityDetailGare.ApiResponse.AccompagnementPMRResp
 import fr.esgi.trainstation.activityDetailGare.ApiResponse.Assistance
 import fr.esgi.trainstation.activityDetailGare.ApiResponse.GareDetailResponse
 import fr.esgi.trainstation.activityDetailGare.ApiResponse.GareEquipeeWifiResponse
+import fr.esgi.trainstation.activityDetailGare.ApiResponse.Horaire
 import fr.esgi.trainstation.activityDetailGare.ApiResponse.HoraireGareResponse
 import fr.esgi.trainstation.activityDetailGare.ApiResponse.RepartitionHFResponse
 import kotlinx.coroutines.launch
@@ -15,10 +16,12 @@ import kotlinx.coroutines.launch
 class DetailGareViewModel : ViewModel() {
     private val listeGareRepository = DetailGareRepository()
     private val _gareInformationsGenerales = MutableLiveData<GareInformationGeneraleModel>()
-    private val _assistancePMR = MutableLiveData<List<Assistance>>()
+    private val _assistancesPMR = MutableLiveData<List<Assistance>>()
+    private val _horaires = MutableLiveData<List<Horaire>>()
 
     val gareInformationsGenerales: LiveData<GareInformationGeneraleModel> = _gareInformationsGenerales
-    val assistancePMR: LiveData<List<Assistance>> = _assistancePMR
+    val assistancePMR: LiveData<List<Assistance>> = _assistancesPMR
+    val horaires: LiveData<List<Horaire>> = _horaires
 
     fun getInformationGeneralesFromNom(nom: String) {
         viewModelScope.launch {
@@ -38,7 +41,14 @@ class DetailGareViewModel : ViewModel() {
     fun getAssistancesPMRFromNom(nom: String){
         viewModelScope.launch {
             val accompagnementPMR: AccompagnementPMRResponse = listeGareRepository.getAccompagnmentPMRFromNomGare(nom)
-            _assistancePMR.value = accompagnementPMR.results
+            _assistancesPMR.value = accompagnementPMR.results
+        }
+    }
+
+    fun getHorairesFromNom(nom: String){
+        viewModelScope.launch {
+            val horaires: HoraireGareResponse = listeGareRepository.getHorairesFromNomGare(nom)
+            _horaires.value = horaires.results
         }
     }
 }

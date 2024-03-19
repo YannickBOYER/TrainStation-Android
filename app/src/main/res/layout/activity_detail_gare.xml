@@ -6,181 +6,240 @@
     android:layout_height="match_parent"
     tools:context=".activityDetailGare.ActivityDetailGare">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <!-- Section : Informations générales -->
+        android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginBottom="8dp"
-            android:padding="8dp">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <!-- Titre de la grande section -->
-            <FrameLayout
+            <!-- Section : Informations générales -->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#6750A4"
-                android:padding="10dp">
+                android:orientation="vertical"
+                android:layout_marginBottom="8dp"
+                android:padding="8dp">
 
                 <!-- Titre de la grande section -->
-                <TextView
+                <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Informations générales"
-                    android:textSize="24sp"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"/>
-            </FrameLayout>
+                    android:background="#6750A4"
+                    android:padding="10dp">
 
-            <!-- Nom de la gare -->
-            <LinearLayout
-                android:layout_marginBottom="-8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="16dp">
+                    <!-- Titre de la grande section -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Informations générales"
+                        android:textSize="24sp"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"/>
+                </FrameLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Nom de la gare : "
-                    android:textSize="18sp"/>
-
-                <TextView
-                    android:id="@+id/libelle"
+                <!-- Nom de la gare -->
+                <LinearLayout
+                    android:layout_marginBottom="-8dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"/>
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nom de la gare : "
+                        android:textSize="18sp"/>
+
+                    <TextView
+                        android:id="@+id/libelle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"/>
+                </LinearLayout>
+
+                <!-- Libellé court -->
+                <LinearLayout
+                    android:layout_marginBottom="-8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Libellé court : "
+                        android:textSize="18sp"/>
+
+                    <TextView
+                        android:id="@+id/libCourt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"/>
+                </LinearLayout>
+
+                <!-- Code insee -->
+                <LinearLayout
+                    android:layout_marginBottom="-8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Code Insee : "
+                        android:textSize="18sp"/>
+
+                    <TextView
+                        android:id="@+id/codeInsee"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"/>
+                </LinearLayout>
+
+                <!-- Wifi -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Accès wifi : "
+                        android:textSize="18sp"/>
+
+                    <TextView
+                        android:id="@+id/wifi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"/>
+                </LinearLayout>
+
             </LinearLayout>
 
-            <!-- Libellé court -->
-            <LinearLayout
-                android:layout_marginBottom="-8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="16dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Libellé court : "
-                    android:textSize="18sp"/>
-
-                <TextView
-                    android:id="@+id/libCourt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="18sp"/>
-            </LinearLayout>
-
-            <!-- Code insee -->
-            <LinearLayout
-                android:layout_marginBottom="-8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="16dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Code Insee : "
-                    android:textSize="18sp"/>
-
-                <TextView
-                    android:id="@+id/codeInsee"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="18sp"/>
-            </LinearLayout>
-
-            <!-- Wifi -->
+            <!-- Section : Information Spécifique -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="16dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Accès wifi : "
-                    android:textSize="18sp"/>
-
-                <TextView
-                    android:id="@+id/wifi"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="18sp"/>
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <!-- Section : Information Spécifique -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="8dp">
-
-            <!-- Titre de la grande section -->
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#6750A4"
-                android:padding="10dp">
+                android:orientation="vertical"
+                android:padding="8dp">
 
                 <!-- Titre de la grande section -->
-                <TextView
+                <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Spécificitées"
-                    android:textSize="24sp"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"/>
-            </FrameLayout>
+                    android:background="#6750A4"
+                    android:padding="10dp">
 
-            <!-- Répartition HF -->
-            <LinearLayout
-                android:layout_marginBottom="-8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="16dp">
+                    <!-- Titre de la grande section -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Spécificités"
+                        android:textSize="24sp"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"/>
+                </FrameLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Répartition : "
-                    android:textSize="18sp"/>
-
-                <TextView
-                    android:id="@+id/repartitionHF"
+                <!-- Répartition HF -->
+                <LinearLayout
+                    android:layout_marginBottom="-8dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"/>
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Répartition : "
+                        android:textSize="18sp"/>
+
+                    <TextView
+                        android:id="@+id/repartitionHF"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"/>
+                </LinearLayout>
+
+                <!-- Accès PMR -->
+                <LinearLayout
+                    android:layout_marginBottom="-8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dispositifs/Assistances PMR :"
+                        android:textSize="18sp"/>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_marginTop="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp"
+                        android:textColor="@color/white"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:paddingRight="15dp"
+                        android:paddingLeft="15dp"
+                        android:id="@+id/recyclerViewAssistancePmr"
+                        android:background="#80000000">
+                    </androidx.recyclerview.widget.RecyclerView>
+
+                </LinearLayout>
+
             </LinearLayout>
 
-            <!-- Accès PMR -->
-            <androidx.recyclerview.widget.RecyclerView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textColor="@color/white"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:paddingRight="15dp"
-                android:paddingLeft="15dp"
-                android:id="@+id/recyclerViewAssistancePmr"
-                android:background="@color/red">
-            </androidx.recyclerview.widget.RecyclerView>
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="8dp">
 
+                <!-- Titre de la grande section -->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/defaultColorTrainStation"
+                    android:padding="10dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Horaires"
+                        android:textSize="24sp"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"/>
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_marginTop="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="350dp"
+                        android:textColor="@color/white"
+                        android:id="@+id/recyclerViewHoraire"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:paddingRight="15dp"
+                        android:paddingLeft="15dp"
+                        android:background="#BF6750A4">
+                    </androidx.recyclerview.widget.RecyclerView>
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

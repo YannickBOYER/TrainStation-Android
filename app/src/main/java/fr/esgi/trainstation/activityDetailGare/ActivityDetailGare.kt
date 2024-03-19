@@ -5,13 +5,15 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import fr.esgi.trainstation.activityDetailGare.Adapter.AssistanceAdapter
+import fr.esgi.trainstation.activityDetailGare.Adapter.HoraireAdapter
 import fr.esgi.trainstation.activityDetailGare.ApiResponse.EnqueteResult
 import fr.esgi.trainstation.databinding.ActivityDetailGareBinding
 
 class ActivityDetailGare : AppCompatActivity() {
     private lateinit var binding: ActivityDetailGareBinding
     private val detailGareViewModel: DetailGareViewModel by viewModels()
-    private val adapter = AssistanceAdapter()
+    private val assistanceAdapter = AssistanceAdapter()
+    private val horaireAdapter = HoraireAdapter()
 
     private val nonRenseigne = "Non renseigné."
     private var nomGare = ""
@@ -21,7 +23,10 @@ class ActivityDetailGare : AppCompatActivity() {
         binding = ActivityDetailGareBinding.inflate(layoutInflater)
 
         binding.recyclerViewAssistancePmr.layoutManager = LinearLayoutManager(this)
-        binding.recyclerViewAssistancePmr.adapter = adapter
+        binding.recyclerViewAssistancePmr.adapter = assistanceAdapter
+
+        binding.recyclerViewHoraire.layoutManager = LinearLayoutManager(this)
+        binding.recyclerViewHoraire.adapter = horaireAdapter
 
         setContentView(binding.root)
 
@@ -33,8 +38,12 @@ class ActivityDetailGare : AppCompatActivity() {
                 setRepartitionFromGare(gare)
             }
 
-            detailGareViewModel.assistancePMR.observe(this) { assistances->
-                adapter.loadData(assistances)
+            detailGareViewModel.assistancePMR.observe(this) { assistances ->
+                assistanceAdapter.loadData(assistances)
+            }
+
+            detailGareViewModel.horaires.observe(this){ horaires ->
+                horaireAdapter.loadData(horaires)
             }
 
 
@@ -48,6 +57,7 @@ class ActivityDetailGare : AppCompatActivity() {
         super.onResume()
         detailGareViewModel.getInformationGeneralesFromNom(this.nomGare)
         detailGareViewModel.getAssistancesPMRFromNom(this.nomGare)
+        detailGareViewModel.getHorairesFromNom(this.nomGare)
     }
 
     fun setInformationGeneralesFromGare(gare: GareInformationGeneraleModel){

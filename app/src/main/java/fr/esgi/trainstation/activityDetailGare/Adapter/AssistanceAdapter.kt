@@ -20,7 +20,9 @@ class AssistanceAdapter: RecyclerView.Adapter<AssistanceAdapter.AssistancePMRVie
 
     override fun onBindViewHolder(holder: AssistancePMRViewHolder, position: Int) {
         val assistance = assistances[position]
-        holder.binding.test.text = assistance.total.toString()
+        holder.binding.dateMensuelle.text = assistance.datemensuel.toString()
+        holder.binding.nbrFauteuil.text = assistance.fauteuil.toString()
+        holder.binding.nbrRampe.text = assistance.rampe.toString()
     }
 
     fun loadData(assistance:List<Assistance>){

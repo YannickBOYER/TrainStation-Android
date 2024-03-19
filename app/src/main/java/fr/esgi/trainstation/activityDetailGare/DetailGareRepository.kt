@@ -29,7 +29,7 @@ class DetailGareRepository {
     }
 
     suspend fun getAccompagnmentPMRFromNomGare(nomGare: String): AccompagnementPMRResponse {
-        return client.get<AccompagnementPMRResponse>("https://ressources.data.sncf.com/api/explore/v2.1/catalog/datasets/accompagnement-pmr-gares/records?limit=20&refine=gare:$nomGare")
+        return client.get<AccompagnementPMRResponse>("https://ressources.data.sncf.com/api/explore/v2.1/catalog/datasets/accompagnement-pmr-gares/records?order_by=datemensuel desc&limit=7&refine=gare:$nomGare")
     }
 
     suspend fun getRepartitionHFFromNomGare(nomGare: String): RepartitionHFResponse {
