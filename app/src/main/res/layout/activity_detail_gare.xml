@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,7 +10,7 @@
         android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <!-- Section : Informations générales -->
@@ -28,12 +27,11 @@
                     android:layout_height="wrap_content"
                     android:background="#6750A4"
                     android:padding="10dp">
-
                     <!-- Titre de la grande section -->
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Informations générales"
+                        android:text="@string/title_informations_generales"
                         android:textSize="24sp"
                         android:textColor="#FFFFFF"
                         android:textStyle="bold"/>
@@ -50,14 +48,18 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Nom de la gare : "
-                        android:textSize="18sp"/>
+                        android:text="@string/label_nom_gare"
+                        android:textSize="18sp"
+                        android:gravity="start"/>
 
                     <TextView
                         android:id="@+id/libelle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="18sp"/>
+                        android:textSize="18sp"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:gravity="end"/>
                 </LinearLayout>
 
                 <!-- Libellé court -->
@@ -71,14 +73,16 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Libellé court : "
-                        android:textSize="18sp"/>
+                        android:text="@string/label_libelle_court"
+                        android:textSize="18sp"
+                        android:gravity="start"/>
 
                     <TextView
                         android:id="@+id/libCourt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="18sp"/>
+                        android:textSize="18sp"
+                        android:gravity="end"/>
                 </LinearLayout>
 
                 <!-- Code insee -->
@@ -92,14 +96,16 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Code Insee : "
-                        android:textSize="18sp"/>
+                        android:text="@string/label_code_insee"
+                        android:textSize="18sp"
+                        android:gravity="start"/>
 
                     <TextView
                         android:id="@+id/codeInsee"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="18sp"/>
+                        android:textSize="18sp"
+                        android:gravity="end"/>
                 </LinearLayout>
 
                 <!-- Wifi -->
@@ -112,14 +118,16 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Accès wifi : "
-                        android:textSize="18sp"/>
+                        android:text="@string/label_acces_wifi"
+                        android:textSize="18sp"
+                        android:gravity="start"/>
 
                     <TextView
                         android:id="@+id/wifi"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="18sp"/>
+                        android:textSize="18sp"
+                        android:gravity="end"/>
                 </LinearLayout>
 
             </LinearLayout>
@@ -142,7 +150,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Spécificités"
+                        android:text="@string/title_specificites"
                         android:textSize="24sp"
                         android:textColor="#FFFFFF"
                         android:textStyle="bold"/>
@@ -159,14 +167,16 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Répartition : "
-                        android:textSize="18sp"/>
+                        android:text="@string/label_repartitions"
+                        android:textSize="18sp"
+                        android:gravity="start"/>
 
                     <TextView
                         android:id="@+id/repartitionHF"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="18sp"/>
+                        android:textSize="18sp"
+                        android:gravity="end"/>
                 </LinearLayout>
 
                 <!-- Accès PMR -->
@@ -180,7 +190,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Dispositifs/Assistances PMR :"
+                        android:text="@string/label_assistance_pmr"
                         android:textSize="18sp"/>
                     <androidx.recyclerview.widget.RecyclerView
                         android:layout_marginTop="8dp"
@@ -194,6 +204,15 @@
                         android:id="@+id/recyclerViewAssistancePmr"
                         android:background="#80000000">
                     </androidx.recyclerview.widget.RecyclerView>
+                    <TextView
+                        android:id="@+id/aucune_assistance_pmr"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/label_aucun_element_affiche"
+                        android:gravity="center"
+                        android:textSize="18sp"
+                        android:padding="20dp"
+                        android:visibility="gone"/>
 
                 </LinearLayout>
 
@@ -214,7 +233,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Horaires"
+                        android:text="@string/title_horaires"
                         android:textSize="24sp"
                         android:textColor="#FFFFFF"
                         android:textStyle="bold"/>
@@ -222,7 +241,8 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:layout_marginTop="8dp"
@@ -236,6 +256,15 @@
                         android:paddingLeft="15dp"
                         android:background="#BF6750A4">
                     </androidx.recyclerview.widget.RecyclerView>
+                    <TextView
+                        android:id="@+id/aucun_horaire"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/label_aucun_element_affiche"
+                        android:gravity="center"
+                        android:textSize="18sp"
+                        android:padding="20dp"
+                        android:visibility="gone"/>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

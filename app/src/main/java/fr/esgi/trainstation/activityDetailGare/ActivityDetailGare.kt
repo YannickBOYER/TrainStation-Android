@@ -2,8 +2,10 @@ package fr.esgi.trainstation.activityDetailGare
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import fr.esgi.trainstation.R
 import fr.esgi.trainstation.activityDetailGare.Adapter.AssistanceAdapter
 import fr.esgi.trainstation.activityDetailGare.Adapter.HoraireAdapter
 import fr.esgi.trainstation.activityDetailGare.ApiResponse.EnqueteResult
@@ -15,7 +17,7 @@ class ActivityDetailGare : AppCompatActivity() {
     private val assistanceAdapter = AssistanceAdapter()
     private val horaireAdapter = HoraireAdapter()
 
-    private val nonRenseigne = "Non renseigné."
+    private var nonRenseigne = ""
     private var nomGare = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,11 +41,21 @@ class ActivityDetailGare : AppCompatActivity() {
             }
 
             detailGareViewModel.assistancePMR.observe(this) { assistances ->
-                assistanceAdapter.loadData(assistances)
+                if(assistances.isEmpty()){
+                    binding.recyclerViewAssistancePmr.visibility = View.GONE
+                    binding.aucuneAssistancePmr.visibility = View.VISIBLE
+                }else{
+                    assistanceAdapter.loadData(assistances)
+                }
             }
 
             detailGareViewModel.horaires.observe(this){ horaires ->
-                horaireAdapter.loadData(horaires)
+                if(horaires.isEmpty()){
+                    binding.recyclerViewHoraire.visibility = View.GONE
+                    binding.aucunHoraire.visibility = View.VISIBLE
+                }else{
+                    horaireAdapter.loadData(horaires)
+                }
             }
 
 
@@ -55,6 +67,7 @@ class ActivityDetailGare : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        nonRenseigne = getString(R.string.label_non_renseigne)
         detailGareViewModel.getInformationGeneralesFromNom(this.nomGare)
         detailGareViewModel.getAssistancesPMRFromNom(this.nomGare)
         detailGareViewModel.getHorairesFromNom(this.nomGare)

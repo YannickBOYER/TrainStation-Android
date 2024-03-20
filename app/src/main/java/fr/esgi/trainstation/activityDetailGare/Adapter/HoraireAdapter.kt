@@ -20,7 +20,9 @@ class HoraireAdapter: RecyclerView.Adapter<HoraireAdapter.HoraireViewHolder>() {
 
     override fun onBindViewHolder(holder: HoraireViewHolder, position: Int) {
         val horaire = horaires[position]
-        holder.binding.test.text = horaire.jour
+        holder.binding.jour.text = horaire.jour
+        holder.binding.horaires.text = horaire.horaire_normal
+        holder.binding.horairesJoursFeries.text = horaire.horaire_ferie
         // Set les champs des items
     }
 

@@ -3,4 +3,19 @@
     <string name="app_name">StationDeTrain</string>
     <string name="title_home">Trouve les stations de trains proches</string>
     <string name="title_main">Bienvenue sur TrainStation</string>
+    <string name="title_informations_generales">Informations générales</string>
+    <string name="label_nom_gare">Nom de la gare</string>
+    <string name="label_libelle_court">Libellé court</string>
+    <string name="label_code_insee">Code Insee</string>
+    <string name="label_acces_wifi">Accès wifi</string>
+    <string name="title_specificites">Spécificités</string>
+    <string name="label_repartitions">Répartitions</string>
+    <string name="label_assistance_pmr">Dispositifs / Assistances PMR : </string>
+    <string name="title_horaires">Horaires</string>
+    <string name="label_aucun_element_affiche">Aucun élément à afficher.</string>
+    <string name="label_non_renseigne">Non renseigné.</string>
+    <string name="label_fauteuils">Fauteuils</string>
+    <string name="label_rampes">Rampes</string>
+    <string name="label_horaires">Horaires : </string>
+    <string name="label_jours_feries">Jours fériés : </string>
 </resources>

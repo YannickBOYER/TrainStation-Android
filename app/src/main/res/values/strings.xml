@@ -2,4 +2,19 @@
     <string name="app_name">TrainStation</string>
     <string name="title_home">Find nearby train stations</string>
     <string name="title_main">Welcome to TrainStation</string>
+    <string name="title_informations_generales">General informations</string>
+    <string name="label_nom_gare">Station name</string>
+    <string name="label_libelle_court">Short code</string>
+    <string name="label_code_insee">Insee code</string>
+    <string name="label_acces_wifi">Wifi access</string>
+    <string name="title_specificites">Characteristics</string>
+    <string name="label_repartitions">Repartitions</string>
+    <string name="label_assistance_pmr">Devices / Aids (PRM) : </string>
+    <string name="title_horaires">Schedules</string>
+    <string name="label_aucun_element_affiche">No items to display.</string>
+    <string name="label_non_renseigne">Not specified.</string>
+    <string name="label_fauteuils">Chairs</string>
+    <string name="label_rampes">Ramps</string>
+    <string name="label_horaires">Schedules : </string>
+    <string name="label_jours_feries">Holidays : </string>
 </resources>

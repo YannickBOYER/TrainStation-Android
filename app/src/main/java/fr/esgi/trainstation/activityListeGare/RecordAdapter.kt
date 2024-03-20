@@ -3,12 +3,12 @@ package fr.esgi.trainstation.activityListeGare
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import fr.esgi.trainstation.databinding.LayoutGaresBinding
+import fr.esgi.trainstation.databinding.ItemGaresBinding
 
 class RecordAdapter(var callback: OnGareClickListener): RecyclerView.Adapter<RecordAdapter.GareViewHolder>() {
     var records:MutableList<Record> = mutableListOf()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GareViewHolder {
-        val binding = LayoutGaresBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        val binding = ItemGaresBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return GareViewHolder(binding)
 
     }
@@ -38,7 +38,7 @@ class RecordAdapter(var callback: OnGareClickListener): RecyclerView.Adapter<Rec
         notifyDataSetChanged()
     }
 
-    class GareViewHolder(val binding: LayoutGaresBinding) : RecyclerView.ViewHolder(binding.root)
+    class GareViewHolder(val binding: ItemGaresBinding) : RecyclerView.ViewHolder(binding.root)
 }
 
 interface OnGareClickListener{

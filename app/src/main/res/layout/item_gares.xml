@@ -5,6 +5,7 @@
     android:layout_height="70dp"
     android:background="@color/white"
     android:paddingTop="8dp"
+    android:paddingStart="0dp"
     android:paddingBottom="8dp"
     android:paddingEnd="8dp"
     android:elevation="2dp"
