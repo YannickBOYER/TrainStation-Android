@@ -14,8 +14,8 @@ import fr.esgi.trainstation.databinding.ActivityDetailGareBinding
 class ActivityDetailGare : AppCompatActivity() {
     private lateinit var binding: ActivityDetailGareBinding
     private val detailGareViewModel: DetailGareViewModel by viewModels()
-    private val assistanceAdapter = AssistanceAdapter()
-    private val horaireAdapter = HoraireAdapter()
+    private val assistanceAdapter = AssistanceAdapter(this)
+    private val horaireAdapter = HoraireAdapter(this)
 
     private var nonRenseigne = ""
     private var nomGare = ""

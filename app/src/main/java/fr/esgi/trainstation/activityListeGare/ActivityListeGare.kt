@@ -5,8 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import fr.esgi.trainstation.databinding.ActivityListeGaresBinding
-import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.launch
 import androidx.activity.viewModels
 import fr.esgi.trainstation.activityDetailGare.ActivityDetailGare
 

@@ -17,4 +17,8 @@
     <string name="label_rampes">Ramps</string>
     <string name="label_horaires">Schedules : </string>
     <string name="label_jours_feries">Holidays : </string>
+    <string name="label_afficher">Show map</string>
+    <string name="title_liste_station">Stations List</string>
+    <string name="title_detail_station">Station details</string>
+
 </resources>
