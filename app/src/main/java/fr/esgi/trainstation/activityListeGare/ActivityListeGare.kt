@@ -3,6 +3,7 @@ package fr.esgi.trainstation.activityListeGare
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import fr.esgi.trainstation.databinding.ActivityListeGaresBinding
 import androidx.activity.viewModels
@@ -48,6 +49,10 @@ class ActivityListeGare : AppCompatActivity(), OnGareClickListener {
         }
 
         listeGareViewModel.records.observe(this) { records ->
+            if(records.isEmpty()){
+                binding.recyclerView.visibility = View.GONE
+                binding.aucuneGare.visibility = View.VISIBLE
+            }
             adapter.loadData(records)
         }
     }

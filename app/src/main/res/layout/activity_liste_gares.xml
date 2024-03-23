@@ -26,5 +26,14 @@
             android:paddingLeft="15dp"
             android:id="@+id/recyclerView">
         </androidx.recyclerview.widget.RecyclerView>
+        <TextView
+            android:id="@+id/aucune_gare"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/label_aucun_element_affiche"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:padding="20dp"
+            android:visibility="gone"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
