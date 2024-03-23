@@ -17,4 +17,5 @@
     <string name="label_rampes">Ramps</string>
     <string name="label_horaires">Schedules : </string>
     <string name="label_jours_feries">Holidays : </string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>

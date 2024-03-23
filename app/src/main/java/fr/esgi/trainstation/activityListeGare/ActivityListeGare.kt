@@ -5,9 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import fr.esgi.trainstation.databinding.ActivityListeGaresBinding
-import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.launch
 import androidx.activity.viewModels
+import fr.esgi.trainstation.mapsActivity.MapsActivity
 import fr.esgi.trainstation.activityDetailGare.ActivityDetailGare
 
 class ActivityListeGare : AppCompatActivity(), OnGareClickListener {
@@ -27,7 +26,11 @@ class ActivityListeGare : AppCompatActivity(), OnGareClickListener {
     }
 
     override fun onClickMap(record: Record) {
-        TODO("Not yet implemented")
+        val intent = Intent(this, MapsActivity::class.java)
+        intent.putExtra("latitude", record.fields.position_geographique[0].toString())
+        intent.putExtra("longitude", record.fields.position_geographique[1].toString())
+        intent.putExtra("nomGare", record.fields.nom)
+        startActivity(intent)
     }
 
 
