@@ -22,4 +22,7 @@
     <string name="label_afficher">Afficher</string>
     <string name="title_liste_station">Liste des stations</string>
     <string name="title_detail_station">Details Station</string>
+    <string name="message_activer_internet">Veuillez activer votre connexion Internet pour utiliser TrainStation.</string>
+    <string name="label_ok">OK</string>
+    <string name="label_connexion_activee">Connexion Internet activée</string>
 </resources>

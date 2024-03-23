@@ -21,4 +21,7 @@
     <string name="label_afficher">Show map</string>
     <string name="title_liste_station">Stations List</string>
     <string name="title_detail_station">Station details</string>
+    <string name="message_activer_internet">Please activate your Internet connection to use TrainStation.</string>
+    <string name="label_ok">OK</string>
+    <string name="label_connexion_activee">Internet connection enabled</string>
 </resources>
