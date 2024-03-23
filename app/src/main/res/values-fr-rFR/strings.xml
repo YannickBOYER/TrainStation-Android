@@ -18,4 +18,8 @@
     <string name="label_rampes">Rampes</string>
     <string name="label_horaires">Horaires : </string>
     <string name="label_jours_feries">Jours fériés : </string>
+    <string name="title_activity_maps">Carte</string>
+    <string name="label_afficher">Afficher</string>
+    <string name="title_liste_station">Liste des stations</string>
+    <string name="title_detail_station">Details Station</string>
 </resources>

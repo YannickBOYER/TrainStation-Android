@@ -23,8 +23,8 @@ class ListeGareRepository {
 
         return client.get<ListeGareResponse>("https://data.sncf.com/api/records/1.0/search/") {
             parameter("dataset", "gares-de-voyageurs")
-            // parameter("geofilter.distance", "$longitude,$latitude,10000")
-            parameter("geofilter.distance", "45.761264,4.849556,10000")
+            parameter("geofilter.distance", "$latitude,$longitude,20000")
+            //parameter("geofilter.distance", "45.761264,4.849556,10000")
             //parameter("geofilter.distance", "45.442090,4.399856,10000")
         }
     }

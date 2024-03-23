@@ -1,7 +1,10 @@
 package fr.esgi.trainstation.mapsActivity
 
+import android.Manifest
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.app.ActivityCompat
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -42,6 +45,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val gare = LatLng(latitude.toDouble(),longitude.toDouble())
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(gare,14f))
         mMap.addMarker(MarkerOptions().position(gare).title(nomGare))
-
+        
+        // Vérification de la permission d'accès à la localisation
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+            && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return
+        }
+        mMap.isMyLocationEnabled = true
     }
 }

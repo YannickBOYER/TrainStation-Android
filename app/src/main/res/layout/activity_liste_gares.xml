@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/home">
-
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:text="Liste de stations"
+            android:text="@string/title_liste_station"
             android:gravity="center"
             android:textSize="25sp"
             android:background="@color/defaultColorTrainStation"
@@ -31,7 +27,4 @@
             android:id="@+id/recyclerView">
         </androidx.recyclerview.widget.RecyclerView>
     </LinearLayout>
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
