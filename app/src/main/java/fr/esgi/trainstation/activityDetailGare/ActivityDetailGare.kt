@@ -61,7 +61,6 @@ class ActivityDetailGare : AppCompatActivity() {
 
         }else{
             binding.libelle.text = gareLibelle
-            // TODO: Aucune info à propos de la gare.
         }
     }
 

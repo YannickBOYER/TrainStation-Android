@@ -10,7 +10,6 @@ class RecordAdapter(var callback: OnGareClickListener): RecyclerView.Adapter<Rec
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GareViewHolder {
         val binding = ItemGaresBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return GareViewHolder(binding)
-
     }
 
     override fun getItemCount(): Int {

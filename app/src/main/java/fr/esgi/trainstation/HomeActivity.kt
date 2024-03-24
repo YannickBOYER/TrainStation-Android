@@ -3,8 +3,14 @@ package fr.esgi.trainstation
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.hardware.Sensor
+import android.hardware.SensorEventListener
+import android.hardware.SensorManager
+import android.content.Context
+import android.hardware.SensorEvent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -14,17 +20,21 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import fr.esgi.trainstation.activityListeGare.ActivityListeGare
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity(), SensorEventListener {
 
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var listeGareButton: Button
     private lateinit var locationTextView: TextView
 
+    private lateinit var sensorManager: SensorManager
+    private var gyroscopeSensor: Sensor? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_home)
 
+        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
+        gyroscopeSensor = sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE)
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
         listeGareButton = findViewById(R.id.listeApi)
@@ -73,4 +83,25 @@ class HomeActivity : AppCompatActivity() {
                 }
         }
     }
+
+    override fun onResume() {
+        super.onResume()
+        gyroscopeSensor?.also { sensor ->
+            sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL, SensorManager.SENSOR_DELAY_NORMAL)
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        sensorManager.unregisterListener(this)
+    }
+
+    override fun onSensorChanged(event: SensorEvent?) {
+        if (event?.sensor?.type == Sensor.TYPE_GYROSCOPE) {
+            val rotationDegrees = Math.toDegrees(event.values[2].toDouble()).toFloat()
+            findViewById<ImageView>(R.id.compass_arrow).rotation = rotationDegrees
+        }
+    }
+
+    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {}
 }

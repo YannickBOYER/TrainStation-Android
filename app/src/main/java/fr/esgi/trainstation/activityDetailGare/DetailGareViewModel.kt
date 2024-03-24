@@ -29,12 +29,6 @@ class DetailGareViewModel : ViewModel() {
             val gareEquipeeWifiResponse: GareEquipeeWifiResponse = listeGareRepository.getGareEquipeeWifiFromNomGare(nom)
             val repartitionHFResponse: RepartitionHFResponse = listeGareRepository.getRepartitionHFFromNomGare(nom)
             _gareInformationsGenerales.value = GareInformationGeneraleModel(details, gareEquipeeWifiResponse, repartitionHFResponse)
-            /*val details: GareDetailResponse = listeGareRepository.getDetailsFromNomGare(nom)
-            val horaires: HoraireGareResponse = listeGareRepository.getHorairesFromNomGare(nom)
-            val accompagnementPMR: AccompagnementPMRResponse = listeGareRepository.getAccompagnmentPMRFromNomGare(nom)
-            val repartitionHFResponse: RepartitionHFResponse = listeGareRepository.getRepartitionHFFromNomGare(nom)
-            val gareEquipeeWifiResponse: GareEquipeeWifiResponse = listeGareRepository.getGareEquipeeWifiFromNomGare(nom)
-            _gare.value = GareDetailModel(details, horaires, accompagnementPMR, repartitionHFResponse, gareEquipeeWifiResponse)*/
         }
     }
 

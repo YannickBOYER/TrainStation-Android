@@ -5,12 +5,10 @@ import fr.esgi.trainstation.activityDetailGare.ApiResponse.GareDetailResponse
 import fr.esgi.trainstation.activityDetailGare.ApiResponse.GareEquipeeWifiResponse
 import fr.esgi.trainstation.activityDetailGare.ApiResponse.HoraireGareResponse
 import fr.esgi.trainstation.activityDetailGare.ApiResponse.RepartitionHFResponse
-import fr.esgi.trainstation.activityListeGare.ListeGareResponse
 import io.ktor.client.HttpClient
 import io.ktor.client.features.json.JsonFeature
 import io.ktor.client.features.json.serializer.KotlinxSerializer
 import io.ktor.client.request.get
-import io.ktor.client.request.parameter
 import kotlinx.serialization.json.Json
 
 class DetailGareRepository {

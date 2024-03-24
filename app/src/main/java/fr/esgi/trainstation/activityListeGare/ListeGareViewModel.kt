@@ -11,9 +11,9 @@ class ListeGareViewModel : ViewModel() {
     private val _records = MutableLiveData<List<Record>>()
     val records: LiveData<List<Record>> = _records
 
-    fun fetchGaresFromLocation(latitude: String, longitude: String, rayon: String = "2000") {
+    fun fetchGaresFromLocation(latitude: String, longitude: String) {
         viewModelScope.launch {
-            _records.value = listeGareRepository.getGaresFromLocation(latitude, longitude, rayon).records
+            _records.value = listeGareRepository.getGaresFromLocation(latitude, longitude).records
         }
     }
 }

@@ -13,7 +13,7 @@ class ListeGareRepository {
         }
     }
 
-    suspend fun getGaresFromLocation(latitude: String, longitude: String, rayon: String): ListeGareResponse {
+    suspend fun getGaresFromLocation(latitude: String, longitude: String): ListeGareResponse {
         /*
         * Coordonnée geo de Lyon
         * lat : 45.761264
