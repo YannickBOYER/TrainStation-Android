@@ -64,9 +64,11 @@ Enfin, on affiche les horaires par jours de la semaines (également sous forme d
 ---
 
 ## Carte
-En sélectionnant le bouton localisation sur une des gares, une nouvelle page va apparaître. Cette fenêtre contient une `Map Google` et permet d'afficher la localisation de la gare sélectionnée mais aussi votre position GPS en temps réél.\
+En sélectionnant le bouton localisation sur une des gares, une nouvelle page va apparaître.\
+Cette fenêtre contient une `Map Google` et permet d'afficher la localisation de la gare sélectionnée mais aussi votre position GPS en temps réél.\
 Par défaut, cette carte sera `centrée et zoomée` sur la gare, mais vous pouvez aussi vous déplacer la carte.\
-Si vous sélectionner le marqueur représentant la gare, vous pourrez voir apparaître son nom, mais aussi 2 icônes en bas à droite de l'application. Ces icônes permettent d'accéder à l'emplacement de la gare sur `Google Maps`, ou même de tracer directement un `itinéraire` entre vous et la gare sélectionnée.
+Si vous sélectionner le marqueur représentant la gare, vous pourrez voir apparaître son nom, mais aussi 2 icônes en bas à droite de l'application.\
+Ces icônes permettent d'accéder à l'emplacement de la gare sur `Google Maps`, ou même de tracer directement un `itinéraire` entre vous et la gare sélectionnée.
 
 --- 
 
