@@ -41,7 +41,7 @@ En cliquant sur la zone de gauche d'un items de la liste de gare, une redirectio
 
 Cette page est divisée en 3 catégories : 
 - Informations Générales
-- Spécifictés
+- Spécificités
 - Horaires
 
 ---
