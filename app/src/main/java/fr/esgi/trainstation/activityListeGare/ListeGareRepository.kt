@@ -15,17 +15,14 @@ class ListeGareRepository {
 
     suspend fun getGaresFromLocation(latitude: String, longitude: String): ListeGareResponse {
         /*
-        * Coordonnée geo de Lyon
+        * Coordonnées geo de Lyon
         * lat : 45.761264
         * lon : 4.849556
         * rayon : 1000
         * */
-
         return client.get<ListeGareResponse>("https://data.sncf.com/api/records/1.0/search/") {
             parameter("dataset", "gares-de-voyageurs")
-            parameter("geofilter.distance", "$latitude,$longitude,10000")
-            //parameter("geofilter.distance", "45.761264,4.849556,10000")
-            //parameter("geofilter.distance", "45.442090,4.399856,10000")
+            parameter("geofilter.distance", "$latitude,$longitude,20000")
         }
     }
 }
